@@ -19,8 +19,7 @@ Config Client
    Make sure that spring.application.name is matching with property file name define in the git
 </pre>
 
-3) Define the  below property to tell the config server path to client
-   spring.cloud.config.uri=http://localhost:8081
+3) spring.cloud.config.uri=http://localhost:8081  to tell the config server path to client
 
 4) spring.cloud.config.fail-fast=true tells spring to throw exception if property file is not found
 
