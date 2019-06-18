@@ -12,11 +12,13 @@ Config Client
 1) Annotate with @EnableConfigClient
 
 2) Annotate with @RefreshScope to be defined to support the auto relaod of properties without server restart
+<pre>
    Note:
    Rename application.properties to bootstrap.properties
    We should make a Post call to http://localhost:8080/actuator/refresh inorder to get the latest properties from git
    Make sure that spring.application.name is matching with property file name define in the git
-   
+</pre>
+
 3) Define the  below property to tell the config server path to client
    spring.cloud.config.uri=http://localhost:8081
 
@@ -25,6 +27,8 @@ Config Client
 5) management.security.enabled=false  to disable security
 
 6) management.endpoints.web.exposure.include=* to expose all acuator Urls
+
+<pre>
 
 {
    "_links":{
@@ -127,5 +131,6 @@ Config Client
    }
 }
 
+</pre>
 
 
