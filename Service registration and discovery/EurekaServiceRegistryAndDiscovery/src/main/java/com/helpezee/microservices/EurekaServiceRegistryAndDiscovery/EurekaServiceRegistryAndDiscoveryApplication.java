@@ -19,6 +19,7 @@ import com.helpezee.microservices.EurekaServiceRegistryAndDiscovery.repo.EmpRepo
 @SpringBootApplication
 @EnableEurekaClient
 @EnableDiscoveryClient
+@RestController
 @EnableJpaRepositories(basePackages = "com.helpezee.microservices.EurekaServiceRegistryAndDiscovery.repo")
 @EntityScan(basePackages = "com.helpezee.microservices.EurekaServiceRegistryAndDiscovery.model")
 public class EurekaServiceRegistryAndDiscoveryApplication {
