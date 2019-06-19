@@ -12,3 +12,19 @@ Think of it as a lookup service where microservices (clients) can register thems
 <b>EurekaServiceRegistryAndDiscovery Microservice </b> – Which will give some functionality based on Employee entity. It will be a rest based service and most importantly it will be a eureka client service, which will talk with eureka service to register itself in the service registry.
 
 <b>EurekaServiceDiscovery Microservice </b> – Same type as of EurekaServiceRegistryAndDiscovery service – only added feature is that it will invoke Employee service with service look up mechanism. We will not use absolute URL of Employee service to interact with that service.
+<pre>
+eureka:
+ client:
+  registerWithEureka: true
+  fetchRegistry: true
+  serviceUrl:
+   defaultZone: http://localhost:8761/eureka/
+   </pre>
+Above is the property that we use to telling which service to register and which service to look up
+
+ <b> registerWithEureka: true </b>  tells the service to register with eureka Naming Server via serviceUrl
+ 
+<b> fetchRegistry: true </b> tells the service to lookup in eureka Naming Server via serviceUrl
+ 
+
+   
