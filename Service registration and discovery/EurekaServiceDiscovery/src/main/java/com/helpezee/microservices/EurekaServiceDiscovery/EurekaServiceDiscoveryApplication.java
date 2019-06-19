@@ -18,6 +18,7 @@ import com.helpezee.microservices.EurekaServiceDiscovery.model.Employee;
 @SpringBootApplication
 @EnableEurekaClient
 @RequestMapping("/")
+@RestController
 @RibbonClient(name = "eurekaresgistryanddiscovery", configuration = AppConfiguration.class)
 public class EurekaServiceDiscoveryApplication {
 
@@ -35,9 +36,8 @@ public class EurekaServiceDiscoveryApplication {
 	}
 
 	@GetMapping
-	public List<Employee> getAllEmployees() {
-		return (List<Employee>) template.getForEntity("http://eurekaresgistryanddiscovery/employees", Employee.class).getBody();
-
+	public String getAllEmployees() {
+		String response = template.getForEntity("http://eurekaresgistryanddiscovery/employees", String.class).getBody();
+		return response;
 	}
-
 }
