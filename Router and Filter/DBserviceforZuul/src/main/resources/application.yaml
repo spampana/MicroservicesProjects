@@ -1,0 +1,17 @@
+spring:
+ application:
+  name: dbservice
+ jpa:
+  show-sql: true
+  format-sql: true
+ hibernate: 
+   ddl-auto: update
+ datasource:
+  url: jdbc:hsqldb:hsql://localhost/
+  username: SA
+  password:
+
+server:
+ port : 8082
+ servlet:
+  context-path: /dbservice
