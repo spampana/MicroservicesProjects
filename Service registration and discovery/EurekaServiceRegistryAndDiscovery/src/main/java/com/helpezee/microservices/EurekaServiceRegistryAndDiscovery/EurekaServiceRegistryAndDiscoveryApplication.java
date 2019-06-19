@@ -12,6 +12,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.helpezee.microservices.EurekaServiceRegistryAndDiscovery.model.Employee;
 import com.helpezee.microservices.EurekaServiceRegistryAndDiscovery.repo.EmpRepository;
