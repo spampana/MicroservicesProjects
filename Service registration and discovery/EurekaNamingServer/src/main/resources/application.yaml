@@ -1,0 +1,21 @@
+spring:
+ application:
+  name: eureka
+  
+server:
+  port: 8761
+
+eureka:
+  client:
+    registerWithEureka: true
+    fetchRegistry: false
+  server:
+    waitTimeInMsWhenSyncEmpty: 1500
+  
+logging:
+  level:
+    com.netflix: 'WARN'
+    org.springframework.cloud: 'WARN'
+    
+
+
