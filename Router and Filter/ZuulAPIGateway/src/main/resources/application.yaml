@@ -1,0 +1,22 @@
+spring:
+ application:
+  name: zuulapi
+
+server:
+ port: 8080
+ 
+zuul:
+ routes:
+  dbservice:
+   path: /dbservice/**
+   url: http://localhost:8082/dbservice
+   #serviceId: this is used when using Naming Server,instance name  of DBservice from eureka naming server should be defined here
+  calcservice:
+   path: /calservice/**
+   url: http://localhost:8081/calservice
+   #serviceId: this is used when using Naming Server,instance name  of Calcservice from eureka naming server should be defined here
+ host:
+  connect-timeout-millis: 60000 # starting the connection 
+  socket-timeout-millis: 60000  # monitor the continuous incoming data flow
+   
+
