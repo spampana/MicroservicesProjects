@@ -12,8 +12,8 @@ zuul:
    url: http://localhost:8082/dbservice
    #serviceId: this is used when using Naming Server,instance name  of DBservice from eureka naming server should be defined here
   calcservice:
-   path: /calservice/**
-   url: http://localhost:8081/calservice
+   path: /calcservice/**
+   url: http://localhost:8081/calcservice
    #serviceId: this is used when using Naming Server,instance name  of Calcservice from eureka naming server should be defined here
  host:
   connect-timeout-millis: 60000 # starting the connection 
