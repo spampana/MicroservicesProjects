@@ -1,5 +1,7 @@
 Refer to https://helpezee.wordpress.com/2019/08/03/event-sourcing-and-cqrs-with-axon-and-spring-boot/ for test scenario's and application explanation.
 <br/>
+<br/>
+<br/>
 we will perform Event Sourcing and CQRS in the same application.
 <br/>
 We will be using Spring Boot for our normal application logic.
