@@ -12,3 +12,5 @@ Since we are using the same application for both Event Sourcing and CQRS, we wil
 <br/>
 To connect to the database, we will leverage Spring Data JPA.
 <br/>
+<br/>
+<img  src="https://helpezee.files.wordpress.com/2019/08/image-6.png"/>
