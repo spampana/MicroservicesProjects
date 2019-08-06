@@ -23,11 +23,13 @@ public class InvoiceAggregate {
 
     @CommandHandler
     public InvoiceAggregate(CreateInvoiceCommand createInvoiceCommand){
+    	System.out.println("Payment-Service ----> CreateInvoiceCommand");
         AggregateLifecycle.apply(new InvoiceCreatedEvent(createInvoiceCommand.paymentId, createInvoiceCommand.orderId));
     }
 
     @EventSourcingHandler
     protected void on(InvoiceCreatedEvent invoiceCreatedEvent){
+    	System.out.println("Payment-Service ----> InvoiceCreatedEvent");
         this.paymentId = invoiceCreatedEvent.paymentId;
         this.orderId = invoiceCreatedEvent.orderId;
         this.invoiceStatus = InvoiceStatus.PAID;

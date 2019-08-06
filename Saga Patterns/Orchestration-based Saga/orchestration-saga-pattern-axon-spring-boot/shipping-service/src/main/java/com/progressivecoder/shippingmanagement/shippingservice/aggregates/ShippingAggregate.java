@@ -23,11 +23,13 @@ public class ShippingAggregate {
 
     @CommandHandler
     public ShippingAggregate(CreateShippingCommand createShippingCommand){
+    	System.out.println("Shipping-Service ----> CreateShippingCommand");
         AggregateLifecycle.apply(new OrderShippedEvent(createShippingCommand.shippingId, createShippingCommand.orderId, createShippingCommand.paymentId));
     }
 
     @EventSourcingHandler
     protected void on(OrderShippedEvent orderShippedEvent){
+    	System.out.println("Shipping-Service ----> OrderShippedEvent");
         this.shippingId = orderShippedEvent.shippingId;
         this.orderId = orderShippedEvent.orderId;
     }

@@ -32,12 +32,14 @@ public class OrderAggregate {
 
     @CommandHandler
     public OrderAggregate(CreateOrderCommand createOrderCommand){
+    	 System.out.println("Order-Service ----> CreateOrderCommand");
         AggregateLifecycle.apply(new OrderCreatedEvent(createOrderCommand.orderId, createOrderCommand.itemType,
                 createOrderCommand.price, createOrderCommand.currency, createOrderCommand.orderStatus));
     }
 
     @EventSourcingHandler
     protected void on(OrderCreatedEvent orderCreatedEvent){
+    	 System.out.println("Order-Service ----> OrderCreatedEvent");
         this.orderId = orderCreatedEvent.orderId;
         this.itemType = ItemType.valueOf(orderCreatedEvent.itemType);
         this.price = orderCreatedEvent.price;
@@ -47,11 +49,13 @@ public class OrderAggregate {
 
     @CommandHandler
     protected void on(UpdateOrderStatusCommand updateOrderStatusCommand){
+    	System.out.println("Order-Service ----> UpdateOrderStatusCommand");
         AggregateLifecycle.apply(new OrderUpdatedEvent(updateOrderStatusCommand.orderId, updateOrderStatusCommand.orderStatus));
     }
 
     @EventSourcingHandler
     protected void on(OrderUpdatedEvent orderUpdatedEvent){
+    	System.out.println("Order-Service ----> OrderUpdatedEvent");
         this.orderId = orderId;
         this.orderStatus = OrderStatus.valueOf(orderUpdatedEvent.orderStatus);
     }

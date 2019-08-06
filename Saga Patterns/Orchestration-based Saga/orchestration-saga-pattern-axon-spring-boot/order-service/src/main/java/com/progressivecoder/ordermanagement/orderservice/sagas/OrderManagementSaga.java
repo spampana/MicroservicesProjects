@@ -24,7 +24,7 @@ public class OrderManagementSaga {
     @SagaEventHandler(associationProperty = "orderId")
     public void handle(OrderCreatedEvent orderCreatedEvent){
         String paymentId = UUID.randomUUID().toString();
-        System.out.println("Saga invoked");
+        System.out.println("OrderManagementSaga --> Saga invoked with OrderCreatedEvent");
 
         //associate Saga
         SagaLifecycle.associateWith("paymentId", paymentId);
@@ -37,6 +37,7 @@ public class OrderManagementSaga {
 
     @SagaEventHandler(associationProperty = "paymentId")
     public void handle(InvoiceCreatedEvent invoiceCreatedEvent){
+    	System.out.println("OrderManagementSaga --> InvoiceCreatedEvent");
         String shippingId = UUID.randomUUID().toString();
 
         System.out.println("Saga continued");
@@ -50,11 +51,14 @@ public class OrderManagementSaga {
 
     @SagaEventHandler(associationProperty = "orderId")
     public void handle(OrderShippedEvent orderShippedEvent){
+    	System.out.println("OrderManagementSaga --> OrderShippedEvent");
         commandGateway.send(new UpdateOrderStatusCommand(orderShippedEvent.orderId, String.valueOf(OrderStatus.SHIPPED)));
     }
 
     @SagaEventHandler(associationProperty = "orderId")
     public void handle(OrderUpdatedEvent orderUpdatedEvent){
+    	System.out.println("OrderManagementSaga --> OrderUpdatedEvent");
+    	System.out.println("OrderManagementSaga --> Life Ends ");
         SagaLifecycle.end();
     }
 }
